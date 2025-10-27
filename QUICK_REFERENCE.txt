@@ -12,8 +12,8 @@ Terminal 1:
 
 Terminal 2:
     cd D:\BITS\sem2\API\assignment
-    python prefect_ml_pipeline.py
-    [This trains the models - run once]
+    python prefect_deployment.py --run
+    [This runs the data pipeline and ML pipeline]
 
 Terminal 3:
     cd D:\BITS\sem2\API\assignment
