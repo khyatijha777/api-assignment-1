@@ -1,0 +1,441 @@
+============================================================================
+VIDEO SCRIPT: HEART DISEASE PREDICTION SYSTEM DEMONSTRATION
+============================================================================
+
+[SLIDE 1: OPENING]
+[Duration: 15-20 seconds]
+
+SCRIPT:
+"Welcome to this demonstration of my Cloud-based Data Science and Machine Learning 
+Application for Heart Disease Prediction. This project implements a comprehensive 
+automated pipeline using Prefect workflow orchestration, featuring three main 
+components: a data pipeline, an ML pipeline, and RESTful API access."
+
+============================================================================
+[SLIDE 2: OVERVIEW]
+[Duration: 20-25 seconds]
+
+SCRIPT:
+"The system addresses heart disease prediction using a dataset from Kaggle with 
+1,025 patient records and 13 clinical features. I've implemented automated 
+workflows that run every 2 minutes, trained two machine learning models, and 
+created a RESTful API for real-time monitoring."
+
+Key Points to Show:
+- Project structure
+- Dataset file (heart.csv)
+- Main technologies: Prefect 3.0, Scikit-learn, Flask
+
+============================================================================
+[SLIDE 3: SUB-OBJECTIVE 1 - BUSINESS UNDERSTANDING]
+[Duration: 15 seconds]
+
+SCRIPT:
+"Starting with Sub-Objective 1, let me explain the business problem. Heart disease 
+is a leading cause of death worldwide. Our system helps healthcare providers 
+identify high-risk patients early, assists doctors in diagnostic decisions, and 
+supports preventive care strategies."
+
+====================================================================
+[DEMONSTRATION 1: DATA PIPELINE SHOWCASE]
+[Duration: 45-60 seconds]
+
+SCRIPT:
+"Now let me show you the data pipeline implementation. [Open prefect_data_pipeline.py]
+
+This file contains the automated data preprocessing workflow:
+
+1. First, we load the heart disease dataset using the load_heart_data task.
+   [Point to function]
+   
+2. We check data quality, including shape, missing values, and data types.
+   [Point to check_data_quality function]
+   
+3. For missing values, we've implemented mean imputation for numeric columns and 
+   mode imputation for categorical columns.
+   [Show code snippet]
+   
+4. We normalize five key features - age, trestbps, chol, thalach, and oldpeak - 
+   using Min-Max scaling to bring them to a 0-1 range.
+   [Show normalization code]
+   
+5. We encode categorical features using one-hot encoding, expanding from 14 
+   to 23 features.
+   [Show encoding code]
+   
+6. The processed data is saved to heart_processed.csv
+   
+[Open heart_processed.csv to show the output]"
+
+Key Points to Show:
+- File: prefect_data_pipeline.py
+- Main functions: load_heart_data, check_data_quality, handle_missing_values, 
+  normalize_numerical_features, encode_categorical_features
+- Output file: heart_processed.csv
+
+============================================================================
+[DEMONSTRATION 2: EDA AND VISUALIZATION]
+[Duration: 30 seconds]
+
+SCRIPT:
+"For exploratory data analysis, we've implemented correlation analysis and 
+categorical encoding. Feature importance is assessed using Random Forest.
+
+[Open dashboard file]
+Our monitoring dashboard shows four key visualizations:
+1. Data Pipeline Status - Pie chart
+2. ML Models Status - Bar chart
+3. System Metrics - Bar chart  
+4. Pipeline Components Timeline
+
+This provides real-time visibility into the system's operation."
+
+Key Points to Show:
+- Dashboard images in dashboard/ folder
+- Visualization of metrics
+
+============================================================================
+[DEMONSTRATION 3: DATAOPS - SCHEDULED WORKFLOWS]
+[Duration: 40 seconds]
+
+SCRIPT:
+"Now let me demonstrate the DataOps implementation - automated scheduling and 
+logging. [Open prefect_deployment.py]
+
+The data pipeline is configured to run automatically every 2 minutes using 
+Interval Schedule. [Show deployment configuration]
+
+All activities are logged comprehensively. [Open logs/ folder]
+
+Let me show you a sample log entry:
+'2025-10-26 19:50:00 - INFO - Loading data from heart.csv'
+'2025-10-26 19:50:00 - INFO - Successfully loaded data with shape: (1025, 14)'
+'2025-10-26 19:50:02 - INFO - Pipeline completed successfully!'
+
+This ensures complete traceability of all operations."
+
+Key Points to Show:
+- prefect_deployment.py deployment configuration
+- Log files in logs/ directory
+- Schedule configuration (every 2 minutes)
+
+============================================================================
+[DEMONSTRATION 4: PREFECT UI DASHBOARD]
+[Duration: 30-40 seconds]
+
+SCRIPT:
+"Let me open the Prefect Cloud UI at http://localhost:4200.
+
+[Open browser to show Prefect UI]
+
+Here you can see:
+- Real-time flow run monitoring
+- Task execution details with timestamps
+- Log viewing for each task
+- Deployment status showing scheduled runs
+- Success/failure status for each execution
+
+This demonstrates the cloud dashboard displaying all activity details as required."
+
+Key Points to Show:
+- Prefect UI running
+- Flow runs history
+- Task execution timeline
+- Real-time updates
+
+============================================================================
+[SLIDE 4: SUB-OBJECTIVE 2 - MACHINE LEARNING]
+[Duration: 20 seconds]
+
+SCRIPT:
+"Moving to Sub-Objective 2, I've implemented a Machine Learning Pipeline. For 
+this binary classification problem, I selected two algorithms: Logistic Regression 
+for interpretability and baseline performance, and Random Forest for better 
+accuracy and feature importance assessment."
+
+============================================================================
+[DEMONSTRATION 5: ML PIPELINE IMPLEMENTATION]
+[Duration: 45 seconds]
+
+SCRIPT:
+"[Open prefect_ml_pipeline.py]
+
+The ML pipeline includes:
+
+1. Data splitting: 70% training (717 samples) and 30% testing (308 samples) 
+   with stratified split.
+   [Show split_data function]
+   
+2. Model training with 5-fold cross-validation for both algorithms.
+   [Show train_logistic_regression and train_random_forest functions]
+   
+3. Comprehensive evaluation using 6 metrics: Accuracy, Precision, Recall, 
+   F1-Score, ROC-AUC, and Cross-Validation scores.
+   [Show evaluate_model function]
+   
+4. Model persistence to the models/ directory.
+   [Show save_model function]"
+
+Key Points to Show:
+- prefect_ml_pipeline.py file
+- Training functions
+- Evaluation metrics
+- Model files in models/ folder
+
+============================================================================
+[DEMONSTRATION 6: MODEL RESULTS]
+[Duration: 30 seconds]
+
+SCRIPT:
+"[Open models/ folder to show saved models]
+
+Here are the results:
+- Logistic Regression achieved 86.36% accuracy
+- Random Forest achieved 98.05% accuracy (Best Model)
+
+[Open random_forest_metrics.json]
+
+The Random Forest model shows excellent performance:
+- Accuracy: 98.05%
+- Precision: 98.13%
+- Recall: 98.05%
+- F1-Score: 98.05%
+- ROC-AUC: 99.87%
+
+[Show confusion matrix]
+The confusion matrix shows minimal misclassifications with only 6 false 
+positives out of 308 test samples."
+
+Key Points to Show:
+- Model files (.pkl)
+- Metric files (.json)
+- Performance metrics
+- Confusion matrix results
+
+============================================================================
+[DEMONSTRATION 7: MLOPS MONITORING]
+[Duration: 25 seconds]
+
+SCRIPT:
+"All metrics are automatically logged and stored. [Show performance_report.json]
+
+The system monitors:
+1. Accuracy - both models tracked
+2. Precision - weighted precision calculated
+3. Recall - weighted recall tracked
+4. F1-Score - harmonic mean logged
+5. ROC-AUC - area under curve recorded
+6. Cross-Validation scores - 5-fold CV results
+
+All these metrics are stored in JSON format and updated after each model 
+training cycle."
+
+Key Points to Show:
+- reports/performance_report.json
+- Model metrics files
+- Monitoring dashboard
+
+============================================================================
+[SLIDE 5: SUB-OBJECTIVE 3 - API ACCESS]
+[Duration: 15 seconds]
+
+SCRIPT:
+"For Sub-Objective 3, I've created a RESTful API using Flask that integrates 
+with Prefect to retrieve key application details. The API provides real-time 
+access to pipeline status, model information, and system health."
+
+============================================================================
+[DEMONSTRATION 8: API IMPLEMENTATION]
+[Duration: 40 seconds]
+
+SCRIPT:
+"[Open prefect_api_integration.py]
+
+The API runs on port 5000 at http://localhost:5000. [Start API server]
+
+Let me demonstrate the six endpoints we've implemented:
+
+1. /app/details - Main application details
+   [Run curl or show browser]
+   
+2. /pipeline/status - Pipeline execution status
+   
+3. /models/info - Model information
+   
+4. /dataset/info - Dataset statistics
+   
+5. /logs/recent - Recent log entries
+   
+6. /health - Health check endpoint
+
+[Show API response in browser or Postman]
+
+Each endpoint returns comprehensive JSON data about the system state."
+
+Key Points to Show:
+- prefect_api_integration.py
+- API running on http://localhost:5000
+- Demo each endpoint
+- Show JSON responses
+
+============================================================================
+[DEMONSTRATION 9: API USAGE EXAMPLES]
+[Duration: 40 seconds]
+
+SCRIPT:
+"Let me demonstrate accessing these endpoints:
+
+[Open browser]
+
+First, the /health endpoint shows system status.
+
+[Open each endpoint and show results]
+
+The /app/details endpoint returns comprehensive information including:
+- Dataset rows and columns
+- Trained models list
+- Model accuracies
+- Pipeline status
+- Last updated timestamp
+- System status
+
+The /models/info endpoint shows detailed model metrics including:
+- Model names (Logistic Regression, Random Forest)
+- Training timestamps
+- Accuracy and F1 scores
+- Model availability
+
+The /pipeline/status endpoint shows:
+- Data pipeline execution status
+- ML pipeline execution status
+- Last run timestamps
+- Pipeline summaries
+
+These demonstrate how built-in APIs provide key application details 
+as required."
+
+Key Points to Show:
+- API running
+- Multiple endpoint demonstrations
+- JSON response examples
+- Different types of information displayed
+
+============================================================================
+[DEMONSTRATION 10: INTEGRATION AND MONITORING]
+[Duration: 30 seconds]
+
+SCRIPT:
+"The entire system is integrated and running. Let me show you:
+
+[Show multiple windows at once]
+- Prefect UI showing active runs
+- API endpoints responding
+- Log files updating
+- Dashboard visualizations
+
+The system demonstrates:
+- Automated data processing every 2 minutes
+- Model training with comprehensive evaluation
+- Real-time monitoring via API
+- Visual dashboards for system health
+- Complete logging and reporting
+
+This is a production-ready implementation with DataOps, MLOps, and API 
+integration."
+
+Key Points to Show:
+- Full system view
+- All components working together
+- Real-time updates
+
+============================================================================
+[SLIDE 6: SUMMARY]
+[Duration: 30 seconds]
+
+SCRIPT:
+"Let me summarize what we've demonstrated:
+
+Sub-Objective 1 - Data Pipeline:
+- Automated preprocessing pipeline running every 2 minutes
+- Comprehensive EDA with correlation analysis and encoding
+- Real-time monitoring with dashboard visualization
+- Complete activity logging
+
+Sub-Objective 2 - ML Pipeline:
+- Two models trained: Logistic Regression and Random Forest
+- Random Forest achieved 98.05% accuracy
+- Six evaluation metrics monitored
+- Comprehensive MLOps implementation
+
+Sub-Objective 3 - API Access:
+- Six RESTful endpoints implemented
+- Real-time application details retrieval
+- Prefect integration for status updates
+- Health monitoring and logging
+
+The system is complete, tested, and ready for deployment."
+
+Key Points to Show:
+- Summary of all three objectives
+- Key achievements
+- Performance results
+- System integration
+
+============================================================================
+[SLIDE 7: CLOSING]
+[Duration: 15 seconds]
+
+SCRIPT:
+"This implementation successfully delivers a production-ready, cloud-based 
+Data Science and Machine Learning application for heart disease prediction with 
+complete automation, monitoring, and API access.
+
+Thank you for watching this demonstration!"
+
+============================================================================
+TECHNICAL NOTES FOR RECORDING:
+============================================================================
+
+BEFORE RECORDING:
+1. Ensure Prefect server is running (prefect server start)
+2. Ensure API server is running (python prefect_api_integration.py)
+3. Have all code files open in IDE
+4. Have terminal/command prompt ready
+5. Have browser tabs ready for Prefect UI and API testing
+6. Test all endpoints before recording
+
+DURING RECORDING:
+1. Show file structure first
+2. Run through code demonstrations smoothly
+3. Test API endpoints live
+4. Show Prefect UI dashboard
+5. Display actual outputs and results
+6. Keep transitions smooth between sections
+7. Speak clearly and explain each step
+
+POST-RECORDING:
+1. Edit out any long pauses
+2. Add text annotations for clarity
+3. Ensure all screenshots are clear
+4. Add background music if needed
+5. Include timestamps in video description
+
+============================================================================
+KEY HIGHLIGHTS TO EMPHASIZE:
+============================================================================
+
+✓ Automated data pipeline running every 2 minutes
+✓ Scheduled workflows with Interval Schedule
+✓ Comprehensive logging with timestamps
+✓ Cloud dashboard displaying activity details
+✓ Two ML models with 6+ evaluation metrics
+✓ Best model achieving 98.05% accuracy
+✓ Six RESTful API endpoints
+✓ Real-time monitoring and health checks
+✓ Production-ready implementation
+✓ Complete DataOps and MLOps practices
+
+============================================================================
+END OF SCRIPT
+============================================================================
+

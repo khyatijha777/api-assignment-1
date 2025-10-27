@@ -1,0 +1,92 @@
+================================================================================
+QUICK REFERENCE: COMMANDS FOR VIDEO DEMONSTRATION
+================================================================================
+
+OPEN THESE IN ORDER:
+====================
+
+Terminal 1:
+    cd D:\BITS\sem2\API\assignment
+    prefect server start
+    [Keep this running - shows Prefect UI at http://localhost:4200]
+
+Terminal 2:
+    cd D:\BITS\sem2\API\assignment
+    python prefect_ml_pipeline.py
+    [This trains the models - run once]
+
+Terminal 3:
+    cd D:\BITS\sem2\API\assignment
+    python prefect_api_integration.py
+    [Keep this running - API at http://localhost:5000]
+
+Browser:
+    Tab 1: http://localhost:4200 (Prefect UI)
+    Tab 2: http://localhost:5000/health (API Health Check)
+
+
+API ENDPOINTS TO TEST:
+=======================
+http://localhost:5000/health
+http://localhost:5000/app/details
+http://localhost:5000/pipeline/status
+http://localhost:5000/models/info
+http://localhost:5000/dataset/info
+http://localhost:5000/logs/recent
+
+
+FILES TO SHOW IN VIDEO:
+=======================
+✓ prefect_data_pipeline.py (Data Pipeline)
+✓ prefect_ml_pipeline.py (ML Pipeline)
+✓ prefect_api_integration.py (API)
+✓ heart.csv (Original Dataset)
+✓ heart_processed.csv (Processed Data)
+✓ models/random_forest_model.pkl (Best Model)
+✓ models/random_forest_metrics.json (Metrics)
+✓ dashboard/monitoring_dashboard_*.png (Dashboard)
+
+
+KEY NUMBERS TO MENTION:
+=======================
+- Dataset: 1,025 records, 23 features (after encoding)
+- Logistic Regression: 86.36% accuracy
+- Random Forest: 98.05% accuracy
+- Schedule: Every 2 minutes
+- Training: 70% train, 30% test
+- 6 API endpoints
+- 6+ evaluation metrics
+
+
+DEMO FLOW:
+==========
+1. Introduction (30 sec)
+2. Show files and structure (30 sec)
+3. Start servers (show commands) (1 min)
+4. Explain Data Pipeline code (2 min)
+5. Show Prefect UI dashboard (1 min)
+6. Explain ML Pipeline code (1 min)
+7. Show model results (1 min)
+8. Test API endpoints (2 min)
+9. Show dashboard image (30 sec)
+10. Summary (1 min)
+
+
+TROUBLESHOOTING COMMANDS:
+=========================
+If Prefect won't start:
+    prefect server start --host 0.0.0.0
+
+If port 5000 is busy:
+    # Change port in prefect_api_integration.py
+    # Update line: app.run(host='0.0.0.0', port=5001)
+
+Check if services are running:
+    # Browser: http://localhost:4200 (Prefect)
+    # Browser: http://localhost:5000/health (API)
+
+Stop all services:
+    Press Ctrl+C in each terminal
+
+================================================================================
+

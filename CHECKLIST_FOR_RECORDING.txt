@@ -1,0 +1,191 @@
+================================================================================
+CHECKLIST: BEFORE VIDEO RECORDING
+================================================================================
+
+BEFORE STARTING:
+------------------------------------------------------------------------------- 
+□ Python 3.8+ installed and verified
+□ All dependencies installed (pip install -r requirements.txt)
+□ Project folder structure ready
+□ All code files present and syntax-checked
+□ heart.csv dataset available
+□ Backup of working code created
+
+PRE-RECORDING SETUP:
+-------------------------------------------------------------------------------
+□ Screen recording software ready and tested
+□ Microphone tested and working
+□ Audio levels checked
+□ Lighting adjusted (if webcam recording)
+□ Background noise minimized
+□ Desktop clutter removed
+□ Browser bookmarks organized
+□ Code editor (IDE) ready with files open
+□ Terminal windows prepared (4 tabs ready)
+□ Post-it notes with key points ready (optional)
+
+TERMINAL PREPARATION:
+-------------------------------------------------------------------------------
+Terminal 1 (Prefect Server):
+□ Ready for: prefect server start
+□ Know: Will show UI at http://localhost:4200
+□ Status: Not started yet
+
+Terminal 2 (ML Pipeline):
+□ Ready for: python prefect_ml_pipeline.py
+□ Know: Will train models
+□ Status: Will run once before recording
+
+Terminal 3 (API Server):
+□ Ready for: python prefect_api_integration.py
+□ Know: Will start API at http://localhost:5000
+□ Status: Will start during recording
+
+Terminal 4 (Optional - Testing):
+□ Ready for: curl commands or Postman
+□ Know: For testing API endpoints
+□ Status: For live testing during recording
+
+BROWSER PREPARATION:
+-------------------------------------------------------------------------------
+□ Tab 1: Prefect UI (http://localhost:4200)
+□ Tab 2: API Health Check (http://localhost:5000/health)
+□ Tab 3: API Details (http://localhost:5000/app/details)
+□ Tab 4: Prefect Login (if required) - bookmarked
+□ Clear browser history (optional, for clean look)
+□ Browser zoom set to comfortable level
+
+CODE FILES TO HAVE OPEN:
+-------------------------------------------------------------------------------
+□ prefect_data_pipeline.py
+□ prefect_ml_pipeline.py
+□ prefect_api_integration.py
+□ prefect_deployment.py
+□ prefect_monitoring.py
+□ heart.csv (to show dataset)
+□ Model files in models/ folder visible
+□ Dashboard image ready in dashboard/ folder
+
+FILES TO CHECK EXIST:
+-------------------------------------------------------------------------------
+□ heart.csv (original dataset)
+□ heart_processed.csv (will be generated)
+□ models/ folder exists
+□ reports/ folder exists
+□ dashboard/ folder exists
+□ logs/ folder exists
+
+TEST RUNS:
+-------------------------------------------------------------------------------
+□ Test Prefect server startup: WORKS
+□ Test ML pipeline execution: WORKS
+□ Test API server startup: WORKS
+□ Test all 6 API endpoints: ALL WORK
+□ Test Prefect UI access: WORKS
+□ Verify models are saved: VERIFIED
+□ Verify metrics are saved: VERIFIED
+
+AUDIO/VISUAL CHECK:
+-------------------------------------------------------------------------------
+□ Screen resolution set appropriately
+□ Microphone volume tested
+□ Audio quality checked
+□ Video quality checked
+□ Screen sharing software tested
+□ Mouse cursor visible and smooth
+□ Zoom to windows properly set
+
+CONTENT REVIEW:
+-------------------------------------------------------------------------------
+□ Video script reviewed
+□ Key talking points memorized
+□ Technical details clear
+□ Expected results noted
+□ Troubleshooting solutions ready
+
+FINAL CHECKS:
+-------------------------------------------------------------------------------
+□ All services can start successfully
+□ No errors in console
+□ API responds correctly
+□ Prefect UI loads properly
+□ Models can be loaded
+□ Dashboard can be generated
+□ All necessary files exist
+□ No broken imports or dependencies
+□ System resources adequate (RAM, CPU)
+
+DURING RECORDING - REMEMBER:
+-------------------------------------------------------------------------------
+□ Speak clearly and at steady pace
+□ Explain what you're clicking/showing
+□ Don't rush through demonstrations
+□ Pause if you make a mistake
+□ Show actual outputs, not mockups
+□ Be authentic with the demo
+□ Cover all three sub-objectives
+□ Show both success and monitoring
+□ Keep each section focused
+□ Maintain energy throughout
+
+COMMON ISSUES TO AVOID:
+-------------------------------------------------------------------------------
+□ Starting with services already running
+□ Forgetting to explain what you're showing
+□ Clicking too fast without narration
+□ Not showing actual results
+□ Skipping troubleshooting
+□ Mumbling or speaking too quietly
+□ Not demonstrating actual functionality
+□ Rushing through important parts
+
+POST-RECORDING CHECKLIST:
+-------------------------------------------------------------------------------
+□ Stop all running services (Ctrl+C)
+□ Close all terminals
+□ Save any notes made during recording
+□ Review recorded footage
+□ Edit video if needed (remove mistakes)
+□ Add annotations if helpful
+□ Export final video
+□ Test video playback
+□ Upload to required platform
+
+BONUS TIPS FOR BETTER RECORDING:
+-------------------------------------------------------------------------------
+□ Practice once before recording
+□ Have demo data ready to show
+□ Prepare interesting example to discuss
+□ Know your metrics by heart
+□ Be ready to explain "why" not just "what"
+□ Show enthusiasm for the project
+□ Connect features to assignment requirements
+□ Demonstrate production-readiness
+□ Highlight automation and scheduling
+□ Emphasize monitoring and logging
+
+================================================================================
+STATUS TRACKER (Use this to check off as you go):
+================================================================================
+
+Setup Phase:
+□ Dependencies installed
+□ Files verified
+□ Folders created
+□ Test runs completed
+
+Recording Phase:
+□ Introduction recorded
+□ Sub-Objective 1 recorded
+□ Sub-Objective 2 recorded
+□ Sub-Objective 3 recorded
+□ Summary recorded
+
+Post-Production:
+□ Video reviewed
+□ Edits made
+□ Finalized
+□ Submitted
+
+================================================================================
+

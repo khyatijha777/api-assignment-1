@@ -1,0 +1,5 @@
+Pipeline Health Alerts - 2025-10-27T20:27:41.792942
+==================================================
+Overall Status: healthy
+
+1. Data pipeline: Data may be stale

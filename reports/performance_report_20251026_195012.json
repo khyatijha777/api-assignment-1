@@ -1,0 +1,44 @@
+{
+  "report_generated": "2025-10-26T19:50:12.292076",
+  "metrics": {
+    "timestamp": "2025-10-26T19:50:11.647060",
+    "data_pipeline": {
+      "processed_rows": 1025,
+      "processed_columns": 23,
+      "file_size_mb": 0.1860189437866211,
+      "last_processed": "2025-10-26T19:50:02.690955"
+    },
+    "ml_pipeline": {
+      "trained_models": 2,
+      "model_files": [
+        "logistic_regression_model.pkl",
+        "random_forest_model.pkl"
+      ],
+      "metrics_files": [
+        "logistic_regression_metrics.json",
+        "random_forest_metrics.json"
+      ],
+      "logistic_regression_accuracy": 0.8636363636363636,
+      "random_forest_accuracy": 0.9805194805194806
+    },
+    "api_status": {
+      "api_running": true,
+      "endpoints_available": [
+        "/app/details",
+        "/pipeline/status",
+        "/models/info",
+        "/health"
+      ]
+    },
+    "system_metrics": {
+      "log_files_count": 0,
+      "disk_usage_mb": 1.647038459777832
+    }
+  },
+  "analysis": {
+    "data_pipeline_status": "healthy",
+    "ml_pipeline_status": "healthy",
+    "overall_status": "operational"
+  },
+  "recommendations": []
+}
