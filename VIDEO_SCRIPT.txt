@@ -37,6 +37,54 @@ identify high-risk patients early, assists doctors in diagnostic decisions, and
 supports preventive care strategies."
 
 ====================================================================
+[DEMONSTRATION 0: HOW TO RUN THE PIPELINES]
+[Duration: 30-40 seconds]
+
+SCRIPT:
+"Now let me show you how to run the complete system. [Open terminal/command prompt]
+
+First, we need to start the Prefect server. [Type command]
+'prefect server start'
+
+You can see the Prefect UI is now running at http://localhost:4200
+
+Next, we deploy all the pipelines to Prefect. [Type command]
+'python prefect_deployment.py'
+
+This will deploy three deployments:
+1. Data Pipeline - processes and transforms the data
+2. ML Pipeline - trains and evaluates machine learning models  
+3. Monitoring Pipeline - tracks system health
+
+Let me show you the deployment configuration... [Open prefect_deployment.py]
+
+You can see each deployment has:
+- A unique name
+- A schedule (data pipeline runs every 2 minutes)
+- Maximum retries set to 3
+- Retry delay of 30 seconds
+
+Now, let's run the pipelines manually to show them in action. [Open run_pipeline_example.py]
+
+This script demonstrates running each pipeline individually:
+- First, it triggers the data pipeline
+- Then, it triggers the ML pipeline
+- Finally, it triggers the monitoring pipeline
+
+[Execute: python run_pipeline_example.py]
+
+You can see the tasks executing in real-time. Each pipeline completes its tasks
+sequentially, with logging output showing the progress."
+
+Key Points to Show:
+- Terminal window with commands
+- Prefect server starting
+- Deployment script execution
+- run_pipeline_example.py file
+- Actual pipeline execution with output
+- Task progress and logging
+
+====================================================================
 [DEMONSTRATION 1: DATA PIPELINE SHOWCASE]
 [Duration: 45-60 seconds]
 
@@ -87,6 +135,33 @@ Our monitoring dashboard shows four key visualizations:
 2. ML Models Status - Bar chart
 3. System Metrics - Bar chart  
 4. Pipeline Components Timeline
+
+What each visualization represents:
+
+1. Data Pipeline Status (Top-Left Pie Chart):
+   - Shows whether the data pipeline is Active (green) or Inactive (red)
+   - Green means heart_processed.csv has been successfully generated
+   - Red indicates the pipeline hasn't run yet or failed to produce output
+   - Gives instant health status of data preprocessing operations
+
+2. ML Models Status (Top-Right Bar Chart):
+   - Displays the number of trained ML models currently available
+   - Counts the .pkl model files in the models/ directory
+   - Typically shows 2 models: Logistic Regression and Random Forest
+   - Indicates readiness of the ML pipeline for predictions
+
+3. System Metrics (Bottom-Left Bar Chart):
+   - Shows two key metrics in separate bars:
+     * Disk Usage (MB): Total size of all project files - helps monitor storage
+     * Log Files: Number of .log files in logs/ directory - indicates logging activity
+   - Helps track resource usage and system activity levels
+
+4. Pipeline Components (Bottom-Right Bar Chart):
+   - Provides a comprehensive overview of the entire system:
+     * Data Processing: Number of rows processed in heart_processed.csv
+     * ML Training: Number of trained models
+     * API Endpoints: Available REST API endpoints (typically 4)
+   - Gives a complete picture of system operational status at a glance
 
 This provides real-time visibility into the system's operation."
 
@@ -397,21 +472,25 @@ TECHNICAL NOTES FOR RECORDING:
 ============================================================================
 
 BEFORE RECORDING:
-1. Ensure Prefect server is running (prefect server start)
-2. Ensure API server is running (python prefect_api_integration.py)
-3. Have all code files open in IDE
-4. Have terminal/command prompt ready
-5. Have browser tabs ready for Prefect UI and API testing
-6. Test all endpoints before recording
+1. Open all code files in IDE (prefect_data_pipeline.py, prefect_ml_pipeline.py, prefect_api_integration.py, etc.)
+2. Start Prefect server: prefect server start
+3. Wait for Prefect UI to be ready at http://localhost:4200
+4. Deploy pipelines: python prefect_deployment.py
+5. Test pipeline execution: python run_pipeline_example.py
+6. Start API server: python prefect_api_integration.py (in separate terminal)
+7. Have browser tabs ready for Prefect UI (localhost:4200) and API testing (localhost:5000)
+8. Test all API endpoints before recording
 
 DURING RECORDING:
-1. Show file structure first
-2. Run through code demonstrations smoothly
-3. Test API endpoints live
-4. Show Prefect UI dashboard
-5. Display actual outputs and results
-6. Keep transitions smooth between sections
-7. Speak clearly and explain each step
+1. Show file structure first (or after overview)
+2. Execute pipeline startup commands in terminal (Prefect server, deployments)
+3. Show pipeline execution with run_pipeline_example.py
+4. Run through code demonstrations smoothly
+5. Test API endpoints live
+6. Show Prefect UI dashboard
+7. Display actual outputs and results
+8. Keep transitions smooth between sections
+9. Speak clearly and explain each step
 
 POST-RECORDING:
 1. Edit out any long pauses
